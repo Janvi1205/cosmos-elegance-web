@@ -1,18 +1,22 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import loveImg from "@/assets/service-love.jpg";
-import marriageImg from "@/assets/service-marriage.jpg";
-import careerImg from "@/assets/service-career.jpg";
+import loveProblemImg from "@/assets/service-love-problem.jpg";
+import loveMarriageImg from "@/assets/service-love-marriage.jpg";
+import familyImg from "@/assets/service-family.jpg";
+import husbandWifeImg from "@/assets/service-husband-wife.jpg";
+import careerImg from "@/assets/service-career-business.jpg";
+import vashikaranImg from "@/assets/service-vashikaran.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { title: "Love Problem Solution", desc: "Overcome heartbreak, misunderstandings, and relationship obstacles with powerful Vedic remedies.", img: loveImg },
-  { title: "Love Marriage Specialist", desc: "Get expert guidance and astrological support for inter-caste and love marriages.", img: marriageImg },
-  { title: "Get Your Ex Back", desc: "Reunite with your lost love through proven astrological methods and spiritual remedies.", img: loveImg },
-  { title: "Husband Wife Problem", desc: "Resolve disputes, rebuild trust, and bring harmony back to your marriage.", img: marriageImg },
-  { title: "Career & Finance", desc: "Unlock professional growth, financial stability, and success aligned with your stars.", img: careerImg },
+  { title: "Love Problem Solution", desc: "Overcome heartbreak, misunderstandings, and relationship obstacles with powerful Vedic remedies.", img: loveProblemImg },
+  { title: "Love Marriage Specialist", desc: "Get expert guidance and astrological support for inter-caste and love marriages.", img: loveMarriageImg },
+  { title: "Family Problem Solution", desc: "Resolve family disputes, bring peace, and restore harmony in your household.", img: familyImg },
+  { title: "Husband Wife Problem", desc: "Resolve disputes, rebuild trust, and bring harmony back to your marriage.", img: husbandWifeImg },
+  { title: "Career & Business", desc: "Unlock professional growth, financial stability, and success aligned with your stars.", img: careerImg },
+  { title: "Vashikaran Specialist", desc: "Ancient Vedic vashikaran solutions for love, attraction, and relationship challenges.", img: vashikaranImg },
 ];
 
 const ServicesSection = () => {
@@ -40,7 +44,7 @@ const ServicesSection = () => {
           {services.map((s, i) => (
             <div key={i} className="service-card glass-card rounded-2xl overflow-hidden hover-lift group text-left" style={{ opacity: 0 }}>
               <div className="h-48 overflow-hidden">
-                <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={600} height={700} />
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={800} height={900} />
               </div>
               <div className="p-6">
                 <h3 className="font-heading text-lg font-bold text-secondary mb-2">{s.title}</h3>
