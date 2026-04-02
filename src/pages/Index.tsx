@@ -32,9 +32,9 @@ const Index = () => (
       <SectionDivider />
       <AboutSection />
       <SectionDivider />
-      <AwardsSection />
-      <SectionDivider />
       <ServicesSection />
+      <SectionDivider />
+      <AwardsSection />
       <SectionDivider />
       <FeaturedSection />
       <SectionDivider />
