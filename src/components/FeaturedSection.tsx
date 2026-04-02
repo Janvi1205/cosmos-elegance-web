@@ -17,13 +17,14 @@ const FeaturedSection = () => {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".featured-card", {
-        y: 60, opacity: 0, duration: 0.7, stagger: 0.15, ease: "power3.out",
-        scrollTrigger: { trigger: ".featured-card", start: "top 85%" },
-      });
-    }, ref);
-    return () => ctx.revert();
+    const el = ref.current;
+    if (!el) return;
+    const cards = el.querySelectorAll(".featured-card");
+    const anim = gsap.fromTo(cards, { y: 60, opacity: 0 }, {
+      y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: "power3.out",
+      scrollTrigger: { trigger: cards[0], start: "top 85%" },
+    });
+    return () => anim.kill();
   }, []);
 
   return (
@@ -37,7 +38,7 @@ const FeaturedSection = () => {
           {featured.map((f, i) => {
             const Icon = f.icon;
             return (
-              <div key={i} className="featured-card relative rounded-3xl overflow-hidden group cursor-default h-96">
+              <div key={i} className="featured-card relative rounded-3xl overflow-hidden group cursor-default h-96" style={{ opacity: 0 }}>
                 <img src={f.img} alt={f.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" width={600} height={700} />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-left">

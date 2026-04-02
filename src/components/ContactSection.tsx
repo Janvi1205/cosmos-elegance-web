@@ -10,13 +10,14 @@ const ContactSection = () => {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".contact-content", {
-        y: 40, opacity: 0, duration: 0.8, ease: "power3.out",
-        scrollTrigger: { trigger: ".contact-content", start: "top 80%" },
-      });
-    }, ref);
-    return () => ctx.revert();
+    const el = ref.current;
+    if (!el) return;
+    const content = el.querySelector(".contact-content");
+    const anim = gsap.fromTo(content, { y: 40, opacity: 0 }, {
+      y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+      scrollTrigger: { trigger: content, start: "top 80%" },
+    });
+    return () => anim.kill();
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -34,7 +35,7 @@ const ContactSection = () => {
             Contact <span className="text-gold-gradient">Me</span>
           </h2>
         </div>
-        <div className="contact-content grid md:grid-cols-2 gap-12">
+        <div className="contact-content grid md:grid-cols-2 gap-12" style={{ opacity: 0 }}>
           <div className="space-y-8">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full gold-gradient flex items-center justify-center flex-shrink-0">

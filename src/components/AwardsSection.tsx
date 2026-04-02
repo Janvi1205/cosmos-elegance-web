@@ -16,13 +16,14 @@ const AwardsSection = () => {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".award-card", {
-        y: 40, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power3.out",
-        scrollTrigger: { trigger: ".award-card", start: "top 85%" },
-      });
-    }, ref);
-    return () => ctx.revert();
+    const el = ref.current;
+    if (!el) return;
+    const cards = el.querySelectorAll(".award-card");
+    const anim = gsap.fromTo(cards, { y: 40, opacity: 0 }, {
+      y: 0, opacity: 1, duration: 0.6, stagger: 0.12, ease: "power3.out",
+      scrollTrigger: { trigger: cards[0], start: "top 85%" },
+    });
+    return () => anim.kill();
   }, []);
 
   return (
@@ -34,7 +35,7 @@ const AwardsSection = () => {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {awards.map((a, i) => (
-            <div key={i} className="award-card glass-card p-6 rounded-2xl hover-lift cursor-default group">
+            <div key={i} className="award-card glass-card p-6 rounded-2xl hover-lift cursor-default group" style={{ opacity: 0 }}>
               <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden bg-muted group-hover:scale-110 transition-transform duration-300">
                 <img src={a.img} alt={a.title} className="w-full h-full object-cover" loading="lazy" width={512} height={512} />
               </div>

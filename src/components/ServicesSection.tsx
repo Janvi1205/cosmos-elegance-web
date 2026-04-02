@@ -19,13 +19,14 @@ const ServicesSection = () => {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".service-card", {
-        y: 50, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power3.out",
-        scrollTrigger: { trigger: ".service-card", start: "top 85%" },
-      });
-    }, ref);
-    return () => ctx.revert();
+    const el = ref.current;
+    if (!el) return;
+    const cards = el.querySelectorAll(".service-card");
+    const anim = gsap.fromTo(cards, { y: 50, opacity: 0 }, {
+      y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power3.out",
+      scrollTrigger: { trigger: cards[0], start: "top 85%" },
+    });
+    return () => anim.kill();
   }, []);
 
   return (
@@ -37,7 +38,7 @@ const ServicesSection = () => {
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((s, i) => (
-            <div key={i} className="service-card glass-card rounded-2xl overflow-hidden hover-lift group text-left">
+            <div key={i} className="service-card glass-card rounded-2xl overflow-hidden hover-lift group text-left" style={{ opacity: 0 }}>
               <div className="h-48 overflow-hidden">
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={600} height={700} />
               </div>
