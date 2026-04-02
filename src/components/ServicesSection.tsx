@@ -1,0 +1,59 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import loveImg from "@/assets/service-love.jpg";
+import marriageImg from "@/assets/service-marriage.jpg";
+import careerImg from "@/assets/service-career.jpg";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const services = [
+  { title: "Love Problem Solution", desc: "Overcome heartbreak, misunderstandings, and relationship obstacles with powerful Vedic remedies.", img: loveImg },
+  { title: "Love Marriage Specialist", desc: "Get expert guidance and astrological support for inter-caste and love marriages.", img: marriageImg },
+  { title: "Get Your Ex Back", desc: "Reunite with your lost love through proven astrological methods and spiritual remedies.", img: loveImg },
+  { title: "Husband Wife Problem", desc: "Resolve disputes, rebuild trust, and bring harmony back to your marriage.", img: marriageImg },
+  { title: "Career & Finance", desc: "Unlock professional growth, financial stability, and success aligned with your stars.", img: careerImg },
+];
+
+const ServicesSection = () => {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".service-card", {
+        y: 50, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power3.out",
+        scrollTrigger: { trigger: ".service-card", start: "top 85%" },
+      });
+    }, ref);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section id="services" ref={ref} className="section-padding bg-muted/30">
+      <div className="max-w-7xl mx-auto text-center">
+        <p className="font-body text-sm font-semibold text-primary tracking-widest uppercase mb-3">What I Offer</p>
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-secondary mb-12">
+          My <span className="text-gold-gradient">Services</span>
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((s, i) => (
+            <div key={i} className="service-card glass-card rounded-2xl overflow-hidden hover-lift group text-left">
+              <div className="h-48 overflow-hidden">
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={600} height={700} />
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading text-lg font-bold text-secondary mb-2">{s.title}</h3>
+                <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{s.desc}</p>
+                <a href="#contact" className="font-body text-sm font-semibold text-primary hover:opacity-80 transition-opacity">
+                  Learn More →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;
