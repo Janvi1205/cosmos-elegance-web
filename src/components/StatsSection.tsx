@@ -23,7 +23,7 @@ const StatsSection = () => {
       y: 0, opacity: 1, stagger: 0.1, duration: 0.6, ease: "power3.out",
       scrollTrigger: { trigger: items[0], start: "top 85%" },
     });
-    return () => anim.kill();
+    return () => { anim.kill(); };
   }, []);
 
   return (

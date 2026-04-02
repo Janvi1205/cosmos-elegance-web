@@ -24,7 +24,7 @@ const FeaturedSection = () => {
       y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: "power3.out",
       scrollTrigger: { trigger: cards[0], start: "top 85%" },
     });
-    return () => anim.kill();
+    return () => { anim.kill(); };
   }, []);
 
   return (

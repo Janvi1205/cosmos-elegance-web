@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
       y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
       scrollTrigger: { trigger: container, start: "top 80%" },
     });
-    return () => anim.kill();
+    return () => { anim.kill(); };
   }, []);
 
   useEffect(() => {

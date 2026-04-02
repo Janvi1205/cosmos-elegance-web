@@ -27,7 +27,7 @@ const AboutSection = () => {
       gsap.fromTo(textEl, { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: textEl, start: "top 80%" } }),
       gsap.fromTo(statEls, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: statEls[0], start: "top 85%" } }),
     ];
-    return () => anims.forEach(a => a.kill());
+    return () => { anims.forEach(a => a.kill()); };
   }, []);
 
   return (

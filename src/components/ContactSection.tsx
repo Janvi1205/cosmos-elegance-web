@@ -17,7 +17,7 @@ const ContactSection = () => {
       y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
       scrollTrigger: { trigger: content, start: "top 80%" },
     });
-    return () => anim.kill();
+    return () => { anim.kill(); };
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {

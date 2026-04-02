@@ -22,7 +22,7 @@ const CertificatesSection = () => {
       y: 0, opacity: 1, duration: 0.6, stagger: 0.12, ease: "power3.out",
       scrollTrigger: { trigger: cards[0], start: "top 85%" },
     });
-    return () => anim.kill();
+    return () => { anim.kill(); };
   }, []);
 
   return (
