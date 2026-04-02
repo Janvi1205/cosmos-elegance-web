@@ -8,9 +8,8 @@ import loveProblemImg from "@/assets/huswife.png";
 import loveMarriageImg from "@/assets/lovesol.png";
 import familyImg from "@/assets/service-family.jpg";
 import husbandWifeImg from "@/assets/service-love.jpg";
-import careerImg from "@/assets/service-career-business.jpg";
 import vashikaranImg from "@/assets/service-vashikaran.jpg";
-import fightimg from "@/assets/fight.png"
+import fightimg from "@/assets/fight.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,17 +22,26 @@ const featured = [
   { title: "Vashikaran Specialist", img: vashikaranImg },
 ];
 
+const autoplayPlugin = Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true });
+
 const FeaturedSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start", slidesToScroll: 3 },
-    [Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })]
+    { loop: true, align: "start", slidesToScroll: 1, duration: 35 },
+    [autoplayPlugin]
   );
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+    autoplayPlugin.reset();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+    autoplayPlugin.reset();
+  }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;

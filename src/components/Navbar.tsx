@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <button onClick={() => scrollTo("home")} className={`font-heading text-2xl font-bold ${logoColor} transition-colors`}>
-          Astro <span className="text-gold-gradient">Dipak</span>
+          Astro <span className="text-gold-gradient">Dipak Shastriji</span>
         </button>
 
         <ul className="hidden md:flex items-center gap-8">

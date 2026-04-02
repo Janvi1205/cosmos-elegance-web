@@ -6,11 +6,11 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const reviews = [
-  { name: "Priya Sharma", text: "Astro Dipak's predictions were incredibly accurate. He helped me reunite with my partner when all hope seemed lost. Forever grateful!", rating: 5 },
-  { name: "Rahul Verma", text: "I was facing severe career issues. After following Astro Dipak's remedies, I got promoted within 3 months. Truly life-changing guidance.", rating: 5 },
-  { name: "Anita Patel", text: "My marriage was on the verge of collapse. Astro Dipak's advice and remedies brought peace and love back into our home.", rating: 5 },
+  { name: "Priya Sharma", text: "Astro Dipak Shastriji's predictions were incredibly accurate. He helped me reunite with my partner when all hope seemed lost. Forever grateful!", rating: 5 },
+  { name: "Rahul Verma", text: "I was facing severe career issues. After following Astro Dipak Shastriji's remedies, I got promoted within 3 months. Truly life-changing guidance.", rating: 5 },
+  { name: "Anita Patel", text: "My marriage was on the verge of collapse. Astro Dipak Shastriji's advice and remedies brought peace and love back into our home.", rating: 5 },
   { name: "Vikash Kumar", text: "Best astrologer I have ever consulted. Very patient, understanding, and the remedies actually work. Highly recommended!", rating: 5 },
-  { name: "Sunita Devi", text: "Astro Dipak helped resolve my love marriage issues with family. Today we are happily married. Thank you so much!", rating: 5 },
+  { name: "Sunita Devi", text: "Astro Dipak Shastriji helped resolve my love marriage issues with family. Today we are happily married. Thank you so much!", rating: 5 },
 ];
 
 const TestimonialsSection = () => {

@@ -18,16 +18,12 @@ const awards = [
   { title: "Best Astrologer Award 2026", img: award4 },
 ];
 
-const autoplayPlugin = Autoplay({
-  delay: 1500,
-  stopOnInteraction: false,
-  stopOnMouseEnter: true,
-});
+const autoplayPlugin = Autoplay({ delay: 1500, stopOnInteraction: false, stopOnMouseEnter: true });
 
 const AwardsSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center", duration: 20 },
+    { loop: true, align: "center", duration: 35 },
     [autoplayPlugin]
   );
   const [selectedIndex, setSelectedIndex] = useState(0);

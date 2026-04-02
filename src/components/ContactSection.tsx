@@ -1,20 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Phone, Mail, MapPin, Send, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Send, MessageCircle } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const contactInfo = [
-  { icon: Phone, label: "Phone", value: "+91 99999 99999", href: "tel:+919999999999" },
-  { icon: Mail, label: "Email", value: "astrodipak@gmail.com", href: "mailto:astrodipak@gmail.com" },
-  { icon: MapPin, label: "Location", value: "Mumbai, India" },
-  { icon: Clock, label: "Available", value: "Mon – Sun, 9 AM – 9 PM" },
+  { icon: Phone, label: "Phone", value: "+91 91579 74529", href: "tel:+919157974529" },
+  { icon: Mail, label: "Email", value: "dkshastriji22@gmail.com", href: "mailto:dkshastriji22@gmail.com" },
+  { icon: MapPin, label: "Location", value: "2666, Vastaghelji pole, Halimki Khidaki Road, Near Metro Station, Shahpur Ahmedabad, 380001" },
+];
+
+const services = [
+  "Love Problem Solution",
+  "Career & Business",
+  "Marriage Solution",
+  "Family Issues",
+  "Vashikaran Specialist",
+  "Health & Wellness",
+  "Other Consultation"
 ];
 
 const ContactSection = () => {
   const ref = useRef<HTMLElement>(null);
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", service: "", message: "" });
 
   useEffect(() => {
     const el = ref.current;
@@ -28,8 +37,8 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = encodeURIComponent(`Name: ${form.name}\nPhone: ${form.phone}\nMessage: ${form.message}`);
-    window.open(`https://wa.me/919999999999?text=${msg}`, "_blank");
+    const msg = encodeURIComponent(`Hello Astro Dipak Shastriji, I would like to book a consultation.\n\nName: ${form.name}\nService: ${form.service}\nMessage: ${form.message}`);
+    window.open(`https://wa.me/919157974529?text=${msg}`, "_blank");
   };
 
   return (
@@ -65,7 +74,7 @@ const ContactSection = () => {
                     {c.href ? (
                       <a href={c.href} className="font-body text-cream hover:text-gold transition-colors">{c.value}</a>
                     ) : (
-                      <p className="font-body text-cream">{c.value}</p>
+                      <p className="font-body text-cream text-sm leading-relaxed">{c.value}</p>
                     )}
                   </div>
                 </div>
@@ -73,7 +82,7 @@ const ContactSection = () => {
             })}
 
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/919157974529?text=Hello%20Astro%20Dipak%20Shastriji,%20I%20would%20like%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 w-full py-4 rounded-xl border-2 border-green-500/40 bg-green-500/10 text-green-400 font-body font-semibold hover:bg-green-500/20 transition-colors"
@@ -84,18 +93,30 @@ const ContactSection = () => {
 
           {/* Right form */}
           <form onSubmit={handleSubmit} className="lg:col-span-3 rounded-2xl p-8 md:p-10 bg-cream/5 border border-cream/10 backdrop-blur-sm space-y-5">
-            <h3 className="font-heading text-xl font-bold text-cream mb-2">Send a Message</h3>
+            <h3 className="font-heading text-xl font-bold text-cream mb-2">Book now</h3>
             <div className="grid sm:grid-cols-2 gap-5">
               <input
                 type="text" placeholder="Your Name" required
                 value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full bg-cream/5 border border-cream/15 rounded-xl px-5 py-3.5 font-body text-sm text-cream placeholder:text-cream/40 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all"
               />
-              <input
-                type="tel" placeholder="Your Phone" required
-                value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full bg-cream/5 border border-cream/15 rounded-xl px-5 py-3.5 font-body text-sm text-cream placeholder:text-cream/40 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all"
-              />
+              <select
+                required
+                value={form.service} 
+                onChange={(e) => setForm({ ...form, service: e.target.value })}
+                className="w-full bg-[#1A2333] border border-cream/15 rounded-xl px-5 py-3.5 font-body text-sm text-cream appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all"
+                style={{ 
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 1.25rem center',
+                  backgroundSize: '1rem'
+                }}
+              >
+                <option value="" disabled className="bg-secondary">Select Service</option>
+                {services.map((s) => (
+                  <option key={s} value={s} className="bg-secondary">{s}</option>
+                ))}
+              </select>
             </div>
             <textarea
               placeholder="Describe your concern or question..." rows={5} required
@@ -103,7 +124,7 @@ const ContactSection = () => {
               className="w-full bg-cream/5 border border-cream/15 rounded-xl px-5 py-3.5 font-body text-sm text-cream placeholder:text-cream/40 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all resize-none"
             />
             <button type="submit" className="w-full gold-gradient text-primary-foreground font-body font-semibold px-7 py-4 rounded-xl inline-flex items-center justify-center gap-2.5 hover:opacity-90 transition-opacity shadow-[var(--shadow-gold)] text-base">
-              <Send size={18} /> Send Message
+              <Send size={18} /> Book now
             </button>
             <p className="text-center font-body text-xs text-cream/40">Your information is 100% confidential and secure.</p>
           </form>
