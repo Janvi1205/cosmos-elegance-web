@@ -21,13 +21,14 @@ const TestimonialsSection = () => {
   const prev = () => setCurrent((c) => (c - 1 + reviews.length) % reviews.length);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".testi-container", {
-        y: 40, opacity: 0, duration: 0.8, ease: "power3.out",
-        scrollTrigger: { trigger: ".testi-container", start: "top 80%" },
-      });
-    }, ref);
-    return () => ctx.revert();
+    const el = ref.current;
+    if (!el) return;
+    const container = el.querySelector(".testi-container");
+    const anim = gsap.fromTo(container, { y: 40, opacity: 0 }, {
+      y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+      scrollTrigger: { trigger: container, start: "top 80%" },
+    });
+    return () => { anim.kill(); };
   }, []);
 
   useEffect(() => {
@@ -44,13 +45,13 @@ const TestimonialsSection = () => {
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-secondary mb-12">
           What Clients <span className="text-gold-gradient">Say</span>
         </h2>
-        <div className="testi-container glass-card rounded-3xl p-8 md:p-12 relative">
+        <div className="testi-container glass-card rounded-3xl p-8 md:p-12 relative" style={{ opacity: 0 }}>
           <div className="flex justify-center gap-1 mb-6">
             {Array.from({ length: review.rating }).map((_, i) => (
               <Star key={i} size={18} className="fill-primary text-primary" />
             ))}
           </div>
-          <p className="font-body text-lg text-foreground/80 leading-relaxed mb-8 italic">"{review.text}"</p>
+          <p className="font-body text-lg text-foreground/80 leading-relaxed mb-8 italic min-h-[80px]">"{review.text}"</p>
           <p className="font-heading text-lg font-bold text-secondary">{review.name}</p>
           <div className="flex justify-center gap-4 mt-8">
             <button onClick={prev} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors">
