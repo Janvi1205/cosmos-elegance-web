@@ -4,12 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import loveProblemImg from "@/assets/service-love-problem.jpg";
-import loveMarriageImg from "@/assets/service-love-marriage.jpg";
+import loveProblemImg from "@/assets/huswife.png";
+import loveMarriageImg from "@/assets/lovesol.png";
 import familyImg from "@/assets/service-family.jpg";
-import husbandWifeImg from "@/assets/service-husband-wife.jpg";
+import husbandWifeImg from "@/assets/service-love.jpg";
 import careerImg from "@/assets/service-career-business.jpg";
 import vashikaranImg from "@/assets/service-vashikaran.jpg";
+import fightimg from "@/assets/fight.png"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +18,7 @@ const featured = [
   { title: "Love Problem Solution", img: loveProblemImg },
   { title: "Love Marriage Specialist", img: loveMarriageImg },
   { title: "Marriage Problem Solution", img: husbandWifeImg },
-  { title: "Husband Wife Problem Solution", img: familyImg },
+  { title: "Husband Wife Problem Solution", img: fightimg },
   { title: "Family Problem Solution", img: familyImg },
   { title: "Vashikaran Specialist", img: vashikaranImg },
 ];

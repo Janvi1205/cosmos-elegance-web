@@ -4,29 +4,43 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import awardImg from "@/assets/award-1.jpg";
+import awardImg from "@/assets/aboutsection.jpeg";
+import award2 from "@/assets/award2.jpeg";
+import award3 from "@/assets/award3.jpeg";
+import award4 from "@/assets/award4.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const awards = [
-  { title: "Best Astrologer Award 2023", img: awardImg },
-  { title: "Excellence in Vedic Sciences", img: awardImg },
-  { title: "Top Love Specialist India", img: awardImg },
-  { title: "Jyotish Ratna Award", img: awardImg },
-  { title: "International Astrology Recognition", img: awardImg },
-  { title: "Spiritual Excellence Award", img: awardImg },
+  { title: "Best Astrologer Award 2026", img: award2 },
+  { title: "Top Tier Award 2026", img: awardImg },
+  { title: "Best Astrologer Award 2026", img: award3 },
+  { title: "Best Astrologer Award 2026", img: award4 },
 ];
+
+const autoplayPlugin = Autoplay({
+  delay: 1500,
+  stopOnInteraction: false,
+  stopOnMouseEnter: true,
+});
 
 const AwardsSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center" },
-    [Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })]
+    { loop: true, align: "center", duration: 20 },
+    [autoplayPlugin]
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+    autoplayPlugin.reset();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+    autoplayPlugin.reset();
+  }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -75,7 +89,7 @@ const AwardsSection = () => {
               {awards.map((a, i) => (
                 <div key={i} className="flex-[0_0_100%] min-w-0 px-4">
                   <div className="glass-card rounded-2xl overflow-hidden max-w-lg mx-auto">
-                    <img src={a.img} alt={a.title} className="w-full h-64 md:h-80 object-cover" loading="lazy" width={600} height={400} />
+                    <img src={a.img} alt={a.title} className="w-full h-80 md:h-[28rem] object-cover" loading="lazy" width={600} height={400} />
                     <div className="p-5">
                       <p className="font-heading text-lg font-semibold text-secondary">{a.title}</p>
                     </div>
@@ -90,7 +104,7 @@ const AwardsSection = () => {
             {awards.map((_, i) => (
               <button
                 key={i}
-                onClick={() => emblaApi?.scrollTo(i)}
+                onClick={() => { emblaApi?.scrollTo(i); autoplayPlugin.reset(); }}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   i === selectedIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
                 }`}

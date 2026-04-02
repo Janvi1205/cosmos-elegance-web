@@ -4,14 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import loveProblemImg from "@/assets/service-love-problem.jpg";
 import loveMarriageImg from "@/assets/service-love-marriage.jpg";
 import familyImg from "@/assets/service-family.jpg";
-import husbandWifeImg from "@/assets/service-husband-wife.jpg";
-import careerImg from "@/assets/service-career-business.jpg";
+import husbandWifeImg from "@/assets/husbandwife.png";
+import careerImg from "@/assets/career.png";
 import vashikaranImg from "@/assets/service-vashikaran.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { title: "Love Problem Solution", desc: "Overcome heartbreak, misunderstandings, and relationship obstacles with powerful Vedic remedies.", img: loveProblemImg },
+  { title: "Love Problem Solution", desc: "Overcome heartbreak, misunderstandings, and relationship obstacles with powerful remedies.", img: loveProblemImg },
   { title: "Love Marriage Specialist", desc: "Get expert guidance and astrological support for inter-caste and love marriages.", img: loveMarriageImg },
   { title: "Family Problem Solution", desc: "Resolve family disputes, bring peace, and restore harmony in your household.", img: familyImg },
   { title: "Husband Wife Problem", desc: "Resolve disputes, rebuild trust, and bring harmony back to your marriage.", img: husbandWifeImg },
@@ -49,8 +49,11 @@ const ServicesSection = () => {
               <div className="p-6">
                 <h3 className="font-heading text-lg font-bold text-secondary mb-2">{s.title}</h3>
                 <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{s.desc}</p>
-                <a href="#contact" className="font-body text-sm font-semibold text-primary hover:opacity-80 transition-opacity">
-                  Learn More →
+                <a
+                  href="#contact"
+                  className="inline-block font-body text-sm font-semibold px-5 py-2 rounded-full bg-primary text-white hover:opacity-90 active:scale-95 transition-all duration-200 shadow-md"
+                >
+                  Book Now
                 </a>
               </div>
             </div>

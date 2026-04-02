@@ -30,18 +30,18 @@ const HeroSection = () => {
         <img
           src={heroBg}
           alt=""
-          className="hero-bg-img w-full h-full object-cover"
+          className="hero-bg-img w-full h-full object-cover object-[75%_center] md:object-center"
           width={1920}
           height={1080}
         />
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/85 via-secondary/70 to-secondary/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 via-transparent to-secondary/30" />
+        {/* Dark gradient overlay - Lightened for mobile to see astrologer better */}
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/40 via-secondary/70 to-secondary/40 md:from-secondary/85 md:via-secondary/70 md:to-secondary/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 via-transparent to-secondary/30" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-32 md:py-40">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl flex flex-col items-center text-center md:items-start md:text-left">
           <div
             className="hero-tag inline-flex items-center gap-2 border border-gold/30 bg-gold/10 backdrop-blur-sm text-gold-light font-body text-sm font-medium px-4 py-1.5 rounded-full mb-8"
             style={{ opacity: 0 }}
@@ -66,10 +66,10 @@ const HeroSection = () => {
             Personalized Vedic astrology guidance for love, marriage, career, and life's toughest challenges — with clarity, compassion, and proven remedies.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-12">
             <a
               href="#contact"
-              className="hero-btn gold-gradient text-primary-foreground font-body font-semibold px-8 py-4 rounded-full inline-flex items-center gap-2.5 hover:opacity-90 transition-opacity shadow-[var(--shadow-gold)]"
+              className="hero-btn gold-gradient text-primary-foreground font-body font-semibold px-8 py-4 rounded-full inline-flex items-center gap-2.5 hover:opacity-90 transition-opacity shadow-[var(--shadow-gold)] w-full sm:w-auto"
               style={{ opacity: 0 }}
             >
               <Phone size={18} /> Book Consultation
@@ -78,21 +78,21 @@ const HeroSection = () => {
               href="https://wa.me/919999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-btn border border-cream/25 text-cream font-body font-semibold px-8 py-4 rounded-full inline-flex items-center gap-2.5 hover:bg-cream/10 transition-colors backdrop-blur-sm"
+              className="hero-btn border border-cream/25 text-cream font-body font-semibold px-8 py-4 rounded-full inline-flex items-center gap-2.5 hover:bg-cream/10 transition-colors backdrop-blur-sm w-full sm:w-auto mt-2 sm:mt-0"
               style={{ opacity: 0 }}
             >
               <MessageCircle size={18} /> Chat on WhatsApp
             </a>
           </div>
 
-          <div className="hero-trust flex items-center gap-6 text-cream/50 font-body text-sm" style={{ opacity: 0 }}>
+          <div className="hero-trust flex items-center justify-center md:justify-start gap-6 text-cream/50 font-body text-sm" style={{ opacity: 0 }}>
             <span className="flex items-center gap-2">
               <span className="w-8 h-px bg-gold/40" />
-              10+ Years Experience
+              20+ Years Experience
             </span>
             <span className="hidden sm:flex items-center gap-2">
               <span className="w-8 h-px bg-gold/40" />
-              5000+ Clients
+              15000+ Clients
             </span>
           </div>
         </div>

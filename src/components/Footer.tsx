@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto section-padding py-12 md:py-16">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
-            <p className="font-heading text-2xl font-bold mb-3">Astro <span className="text-gold-gradient">Guruji</span></p>
+            <p className="font-heading text-2xl font-bold mb-3">Astro <span className="text-gold-gradient">Dipak</span></p>
             <p className="font-body text-sm text-secondary-foreground/70 leading-relaxed">
               Trusted Vedic Astrologer helping individuals find clarity and solutions through the wisdom of the stars.
             </p>
@@ -33,14 +33,14 @@ const Footer = () => {
             <p className="font-heading text-base font-semibold mb-4">Contact Info</p>
             <div className="font-body text-sm text-secondary-foreground/60 space-y-2">
               <p>+91 99999 99999</p>
-              <p>astroguruji@gmail.com</p>
+              <p>astrodipak@gmail.com</p>
               <p>Mumbai, India</p>
             </div>
           </div>
         </div>
         <div className="border-t border-secondary-foreground/10 mt-10 pt-6 text-center">
           <p className="font-body text-xs text-secondary-foreground/50 flex items-center justify-center gap-1">
-            Made with <Heart size={12} className="fill-primary text-primary" /> Astro Guruji © {new Date().getFullYear()}
+            Made with <Heart size={12} className="fill-primary text-primary" /> Astro Dipak © {new Date().getFullYear()}
           </p>
         </div>
       </div>

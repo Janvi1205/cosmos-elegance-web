@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const contactInfo = [
   { icon: Phone, label: "Phone", value: "+91 99999 99999", href: "tel:+919999999999" },
-  { icon: Mail, label: "Email", value: "astroguruji@gmail.com", href: "mailto:astroguruji@gmail.com" },
+  { icon: Mail, label: "Email", value: "astrodipak@gmail.com", href: "mailto:astrodipak@gmail.com" },
   { icon: MapPin, label: "Location", value: "Mumbai, India" },
   { icon: Clock, label: "Available", value: "Mon – Sun, 9 AM – 9 PM" },
 ];
