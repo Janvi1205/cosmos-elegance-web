@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useEmblaCarousel from "embla-carousel-react";
@@ -22,26 +22,44 @@ const featured = [
   { title: "Vashikaran Specialist", img: vashikaranImg },
 ];
 
-const autoplayPlugin = Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true });
-
 const FeaturedSection = () => {
   const ref = useRef<HTMLElement>(null);
+
+  // Separate autoplay instance inside component scope
+  const autoplayPlugin = useMemo(() => 
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true }),
+  []);
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start", slidesToScroll: 1, duration: 35 },
+    { loop: true, align: "start", slidesToScroll: 1, duration: 45 },
     [autoplayPlugin]
   );
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
 
   const scrollPrev = useCallback(() => {
-    emblaApi?.scrollPrev();
-    autoplayPlugin.reset();
-  }, [emblaApi]);
+    if (!emblaApi) return;
+    emblaApi.scrollPrev();
+    autoplayPlugin.reset(); // Reset on arrow click
+  }, [emblaApi, autoplayPlugin]);
 
   const scrollNext = useCallback(() => {
-    emblaApi?.scrollNext();
-    autoplayPlugin.reset();
-  }, [emblaApi]);
+    if (!emblaApi) return;
+    emblaApi.scrollNext();
+    autoplayPlugin.reset(); // Reset on arrow click
+  }, [emblaApi, autoplayPlugin]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const el = ref.current;
+      if (!el) return;
+      gsap.fromTo(".featured-inner", { y: 40, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.7, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 85%" },
+      });
+    }, ref);
+    return () => ctx.revert();
+  }, []);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -55,49 +73,47 @@ const FeaturedSection = () => {
     return () => { emblaApi.off("select", onSelect); };
   }, [emblaApi]);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const anim = gsap.fromTo(el.querySelector(".featured-inner")!, { y: 40, opacity: 0 }, {
-      y: 0, opacity: 1, duration: 0.7, ease: "power3.out",
-      scrollTrigger: { trigger: el, start: "top 85%" },
-    });
-    return () => { anim.kill(); };
-  }, []);
-
   return (
-    <section id="love-solutions" ref={ref} className="section-padding">
+    <section id="love-solutions" ref={ref} className="section-padding overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
         <p className="font-body text-sm font-semibold text-primary tracking-widest uppercase mb-3">Featured</p>
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-secondary mb-12">
           Explore Our Range of <span className="text-gold-gradient">Services</span>
         </h2>
-        <div className="featured-inner relative" style={{ opacity: 0 }}>
+        <div className="featured-inner relative opacity-0 group">
           {/* Arrows */}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-secondary/80 text-cream flex items-center justify-center hover:bg-secondary transition-colors -ml-2 md:-ml-5"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full glass-card text-secondary flex items-center justify-center hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-xl"
             aria-label="Previous"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={24} />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-secondary/80 text-cream flex items-center justify-center hover:bg-secondary transition-colors -mr-2 md:-mr-5"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full glass-card text-secondary flex items-center justify-center hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-xl"
             aria-label="Next"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={24} />
           </button>
 
-          <div ref={emblaRef} className="overflow-hidden mx-8">
+          <div ref={emblaRef} className="overflow-hidden">
             <div className="flex -ml-6">
               {featured.map((f, i) => (
                 <div key={i} className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-6">
-                  <div className="relative rounded-2xl overflow-hidden group cursor-default h-72 sm:h-80">
-                    <img src={f.img} alt={f.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" width={800} height={900} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="font-heading text-lg font-bold text-cream">{f.title}</h3>
+                  <div className="relative rounded-3xl overflow-hidden group/card cursor-pointer h-80 sm:h-[30rem] shadow-soft">
+                    <img 
+                      src={f.img} 
+                      alt={f.title} 
+                      className="absolute inset-0 w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-1000" 
+                      loading="lazy" 
+                      width={600} 
+                      height={800} 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-2 group-hover/card:translate-y-0 transition-transform">
+                      <h3 className="font-heading text-xl md:text-2xl font-bold text-cream leading-tight">{f.title}</h3>
+                      <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
                     </div>
                   </div>
                 </div>
