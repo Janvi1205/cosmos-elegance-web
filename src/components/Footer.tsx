@@ -11,8 +11,10 @@ const Footer = () => {
     <footer className="bg-secondary text-secondary-foreground">
       <div className="max-w-7xl mx-auto section-padding py-12 md:py-16">
         <div className="grid md:grid-cols-3 gap-10">
-          <div>
-            <p className="font-heading text-2xl font-bold mb-3">Astro <span className="text-gold-gradient">Dipak Shastriji</span></p>
+          <div className="md:col-span-2 space-y-6">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="font-heading text-2xl font-bold text-cream">
+              Astrologer <span className="text-gold-gradient">Dipak Shastriji</span>
+            </button>
             <p className="font-body text-sm text-secondary-foreground/70 leading-relaxed">
               Trusted Vedic Astrologer helping individuals find clarity and solutions through the wisdom of the stars.
             </p>
@@ -38,9 +40,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-secondary-foreground/10 mt-10 pt-6 text-center">
-          <p className="font-body text-xs text-secondary-foreground/50 flex items-center justify-center gap-1">
-            Made with <Heart size={12} className="fill-primary text-primary" /> Astro Dipak Shastriji © {new Date().getFullYear()}
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-cream/10 text-center">
+          <p className="font-body text-sm text-cream/40">
+            &copy; {new Date().getFullYear()} Astrologer Dipak Shastriji. All rights reserved.
           </p>
         </div>
       </div>

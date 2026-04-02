@@ -1,4 +1,4 @@
-# Astro Dipak Shastriji - Trusted Vedic Astrologer
+# Astrologer Dipak Shastriji - Trusted Vedic Astrologer
 
 Personalized Vedic astrology guidance for love, marriage, career, and life's toughest challenges — with clarity, compassion, and proven remedies.
 

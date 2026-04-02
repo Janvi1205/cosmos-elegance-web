@@ -82,7 +82,7 @@ const HeroSection = () => {
               <Phone size={18} /> Book now
             </a>
             <a
-              href="https://wa.me/919157974529?text=Hello%20Astro%20Dipak%20Shastriji,%20I%20would%20like%20to%20book%20a%20consultation."
+              href="https://wa.me/919157974529?text=Hello%20Astrologer%20Dipak%20Shastriji,%20I%20would%20like%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               className="hero-btn border border-cream/25 text-cream font-body font-semibold px-8 py-4 rounded-full inline-flex items-center gap-2.5 hover:bg-cream/10 transition-colors backdrop-blur-sm w-full sm:w-auto mt-2 sm:mt-0 opacity-0"

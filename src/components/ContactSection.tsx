@@ -37,7 +37,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = encodeURIComponent(`Hello Astro Dipak Shastriji, I would like to book a consultation.\n\nName: ${form.name}\nService: ${form.service}\nMessage: ${form.message}`);
+    const msg = encodeURIComponent(`Hello Astrologer Dipak Shastriji, I would like to book a consultation.\n\nName: ${form.name}\nService: ${form.service}\nMessage: ${form.message}`);
     window.open(`https://wa.me/919157974529?text=${msg}`, "_blank");
   };
 
@@ -82,7 +82,7 @@ const ContactSection = () => {
             })}
 
             <a
-              href="https://wa.me/919157974529?text=Hello%20Astro%20Dipak%20Shastriji,%20I%20would%20like%20to%20book%20a%20consultation."
+              href="https://wa.me/919157974529?text=Hello%20Astrologer%20Dipak%20Shastriji,%20I%20would%20like%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 w-full py-4 rounded-xl border-2 border-green-500/40 bg-green-500/10 text-green-400 font-body font-semibold hover:bg-green-500/20 transition-colors"

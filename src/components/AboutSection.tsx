@@ -66,7 +66,7 @@ const AboutSection = () => {
           <div className="rounded-3xl overflow-hidden shadow-[var(--shadow-elevated)] max-w-md w-full">
             <ProgressiveImage
               src={aboutImg}
-              alt="About Astro Dipak Shastriji"
+              alt="About Astrologer Dipak Shastriji"
               width={800}
               height={900}
               className="max-h-[500px]"

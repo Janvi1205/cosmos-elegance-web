@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const AwardsSection = lazy(() => import("@/components/AwardsSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const CertificatesSection = lazy(() => import("@/components/CertificatesSection"));
 const FeaturedSection = lazy(() => import("@/components/FeaturedSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
@@ -36,8 +35,6 @@ const Index = () => (
       <AwardsSection />
       <SectionDivider />
       <ServicesSection />
-      <SectionDivider />
-      <CertificatesSection />
       <SectionDivider />
       <FeaturedSection />
       <SectionDivider />
