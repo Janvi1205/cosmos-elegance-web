@@ -20,6 +20,9 @@ const Navbar = () => {
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const textColor = scrolled ? "text-foreground/70 hover:text-primary" : "text-cream/70 hover:text-cream";
+  const logoColor = scrolled ? "text-secondary" : "text-cream";
+
   return (
     <nav
       ref={navRef}
@@ -28,17 +31,16 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <button onClick={() => scrollTo("home")} className="font-heading text-2xl font-bold text-secondary">
+        <button onClick={() => scrollTo("home")} className={`font-heading text-2xl font-bold ${logoColor} transition-colors`}>
           Astro <span className="text-gold-gradient">Guruji</span>
         </button>
 
-        {/* Desktop */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link}>
               <button
                 onClick={() => scrollTo(link)}
-                className="font-body text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200"
+                className={`font-body text-sm font-medium ${textColor} transition-colors duration-200`}
               >
                 {link}
               </button>
@@ -54,13 +56,11 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className={`md:hidden ${scrolled ? "text-foreground" : "text-cream"} transition-colors`} onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border px-6 py-6 space-y-4">
           {navLinks.map((link) => (
