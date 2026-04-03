@@ -35,13 +35,7 @@ const Footer = () => {
             <p className="font-body text-sm text-cream/60 leading-relaxed max-w-xs">
               Empowering lives through the ancient wisdom of Vedic astrology. Trusted by thousands for clarity in love, career, and life’s journey.
             </p>
-            <div className="flex items-center gap-4 pt-2">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center text-cream/40 hover:text-gold hover:border-gold/30 hover:bg-gold/5 transition-all">
-                  <Icon size={18} />
-                </a>
-              ))}
-            </div>
+
           </div>
 
           {/* Quick Links */}
