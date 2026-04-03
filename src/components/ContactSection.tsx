@@ -53,8 +53,8 @@ const ContactSection = () => {
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-cream">
             Let's Start Your <span className="text-gold-gradient">Journey</span>
           </h2>
-          <p className="font-body text-cream/60 mt-4 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            Ready to transform your life? Reach out for a confidential consultation and discover what the stars hold for you.
+          <p className="font-body text-cream/60 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Book Your Appointment And Get Consultation from Most promising and proficient Jyotish, Astrologer in Ahmedabad, Gujarat, India.
           </p>
         </div>
 

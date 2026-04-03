@@ -59,19 +59,22 @@ const HeroSection = () => {
             Trusted Vedic Astrologer
           </div>
 
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6">
-            <span className="hero-line block text-cream opacity-0">
-              Unlock the Stars,
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.3] mb-6 overflow-visible">
+            <span className="hero-line block text-cream opacity-0 pb-2 overflow-visible">
+              Welcome to
             </span>
-            <span className="hero-line block text-gold-gradient opacity-0">
-              Transform Your Life
+            <span className="hero-line block text-gold-gradient opacity-0 pb-2 overflow-visible">
+              Shani Darshan
+            </span>
+            <span className="hero-line block text-gold-gradient opacity-0 pb-2 overflow-visible">
+              Jyotish
             </span>
           </h1>
 
           <p
             className="hero-sub font-body text-cream/70 text-base md:text-lg max-w-lg mb-10 leading-relaxed opacity-0"
           >
-            Personalized Vedic astrology guidance for love, marriage, career, and life's toughest challenges — with clarity, compassion, and proven remedies.
+            Get personalized Vedic astrology guidance for love, marriage, career, and life's toughest challenges from the best Astrologer in Ahmedabad-Dipak Shastriji
           </p>
 
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-12">

@@ -13,7 +13,7 @@ const FloatingButtons = () => (
       href="https://wa.me/919157974529?text=Hello%20Astro%20Dipak%20Shastriji,%20I%20would%20like%20to%20book%20a%20consultation."
       target="_blank"
       rel="noopener noreferrer"
-      className="w-14 h-14 rounded-full gold-gradient text-primary-foreground flex items-center justify-center shadow-[var(--shadow-gold)] hover:scale-110 transition-transform"
+      className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform"
       aria-label="Chat on WhatsApp"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" fill="currentColor">

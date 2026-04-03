@@ -84,10 +84,10 @@ const AboutSection = () => {
           <p className="font-body text-muted-foreground leading-relaxed mb-8">
             Every consultation is personalized to your unique birth chart, ensuring accurate predictions and effective remedies that bring real transformation to your life.
           </p>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {stats.map((s) => (
-              <div key={s.label} className="about-stat glass-card p-4 text-center rounded-2xl opacity-0">
-                <p className="stat-counter font-heading text-2xl font-bold text-primary">0{s.suffix}</p>
+              <div key={s.label} className="about-stat glass-card p-3 md:p-4 text-center rounded-2xl opacity-0">
+                <p className="stat-counter font-heading text-xl md:text-2xl font-bold text-primary">0{s.suffix}</p>
                 <p className="font-body text-xs text-muted-foreground mt-1">{s.label}</p>
               </div>
             ))}

@@ -14,12 +14,12 @@ import fightimg from "@/assets/fight.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const featured = [
-  { title: "Love Problem Solution", img: loveProblemImg },
-  { title: "Love Marriage Specialist", img: loveMarriageImg },
-  { title: "Marriage Problem Solution", img: husbandWifeImg },
-  { title: "Husband Wife Problem Solution", img: fightimg },
-  { title: "Family Problem Solution", img: familyImg },
-  { title: "Vashikaran Specialist", img: vashikaranImg },
+  { title: "Love Problem Solution in Ahmedabad", img: loveProblemImg },
+  { title: "Love Marriage Specialist in Ahmedabad", img: loveMarriageImg },
+  { title: "Marriage Problem Solution in Ahmedabad", img: husbandWifeImg },
+  { title: "Husband Wife Problem Solution in Ahmedabad", img: fightimg },
+  { title: "Family Problem Solution in Ahmedabad", img: familyImg },
+  { title: "Vashikaran Specialist in Ahmedabad", img: vashikaranImg },
 ];
 
 const FeaturedSection = () => {

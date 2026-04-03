@@ -2,12 +2,12 @@ import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, ArrowUp, Heart } fro
 
 const quickLinks = ["Home", "About", "Services", "Love Solutions", "Testimonials", "Contact"];
 const services = [
-  "Love Problem Solution",
-  "Career & Business",
-  "Marriage Solution",
-  "Family Issues",
-  "Vashikaran Specialist",
-  "Horoscope Matching"
+  "Love Problem Solution in Ahmedabad",
+  "Career & Business in Ahmedabad",
+  "Marriage Solution in Ahmedabad",
+  "Family Issues in Ahmedabad",
+  "Vashikaran Specialist in Ahmedabad",
+  "Horoscope Matching in Ahmedabad"
 ];
 
 const Footer = () => {
